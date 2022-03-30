@@ -6,7 +6,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 The game starts by pressing the roll dice button.
 Once the game starts you accumulate the dice scores as current score but will only be added to your total score if and only if you press the 'Hold' button.
-Once you press the 'Hold' button it will switch to the next player.
+Press the 'Hold' button will also switch to the next player.
+
 Beware the current score is refreshed if the dice roll is '1' and will switch to the next player.
 So choose wisely when to hold and not get greedy.
 
