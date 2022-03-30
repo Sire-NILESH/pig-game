@@ -29,10 +29,6 @@ code {
     monospace;
 }
 
-.hidden {
-  display: none;
-}
-
 button {
   position: absolute;
   left: 50%;
@@ -76,7 +72,7 @@ button:focus {
 }
 
 .winning_description {
-  font-size: 2rem;
+  font-size: 2.5rem;
   letter-spacing: 1px;
   word-spacing: 2px;
   font-weight: 100;

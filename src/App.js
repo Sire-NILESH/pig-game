@@ -16,6 +16,7 @@ function App() {
   const [diceNumber, setDiceNumber] = useState(0);
   const [playing, setPlaying] = useState(true);
   const [newGame, setNewGame] = useState(0);
+  const scoreLimit = 100;
 
   useEffect(() => {
     setScores0(0);
@@ -59,7 +60,7 @@ function App() {
       }
 
       // if (scores0 >= 10 || scores1 >= 10)
-      if (tempScore0 >= 100 || tempScore1 >= 100) {
+      if (tempScore0 >= scoreLimit || tempScore1 >= scoreLimit) {
         //we have our winner
         const playerWon = activePlayer + 1;
         setWinner(playerWon);
@@ -80,7 +81,9 @@ function App() {
 
   return (
     <>
-      {playing && <h1 className="winning_description">Score 100 to win 👑</h1>}
+      <h1 className="winning_description">
+        {winner === 3 ? `Score ${scoreLimit} to win 👑` : "Congratulations 🎉"}
+      </h1>
       <Main>
         <PlayerCard
           user={1}
