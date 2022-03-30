@@ -74,3 +74,13 @@ button:focus {
 .hidden {
   display: none;
 }
+
+.winning_description {
+  font-size: 2rem;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  font-weight: 100;
+  color: rgb(223, 210, 210);
+  margin-bottom: 5rem;
+  text-align: center;
+}

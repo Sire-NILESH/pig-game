@@ -53,13 +53,13 @@ function App() {
         setScores0((prevScore) => prevScore + currentScore);
         setCurrentScore(0);
       } else {
-        tempScore1 = scores0 + currentScore;
+        tempScore1 = scores1 + currentScore;
         setScores1((prevScore) => prevScore + currentScore);
         setCurrentScore(0);
       }
 
       // if (scores0 >= 10 || scores1 >= 10)
-      if (tempScore0 >= 10 || tempScore1 >= 10) {
+      if (tempScore0 >= 100 || tempScore1 >= 100) {
         //we have our winner
         const playerWon = activePlayer + 1;
         setWinner(playerWon);
@@ -68,7 +68,6 @@ function App() {
         setDiceNumber(0);
       } else {
         // Switch to next player
-        console.log("switiching");
         setCurrentScore(0);
         setActivePlayer((prevActivePlayer) => (prevActivePlayer === 0 ? 1 : 0));
       }
@@ -80,26 +79,31 @@ function App() {
   };
 
   return (
-    <Main>
-      <PlayerCard
-        user={1}
-        score={scores0}
-        currentScore={activePlayer === 0 ? currentScore : 0}
-        active={activePlayer === 0 ? true : false}
-        winnerStatus={winner}
-      ></PlayerCard>
-      <Dice playing={playing} diceNumber={diceNumber} />
-      <PlayerCard
-        user={2}
-        score={scores1}
-        currentScore={activePlayer === 1 ? currentScore : 0}
-        active={activePlayer === 1 ? true : false}
-        winnerStatus={winner}
-      ></PlayerCard>
-      <StartNewGameButton onClickHandler={newGameHandler}></StartNewGameButton>
-      <RollDiceButton onClickHandler={rollDiceHandler}></RollDiceButton>
-      <HoldButton onClickHandler={holdHandler}></HoldButton>
-    </Main>
+    <>
+      {playing && <h1 className="winning_description">Score 100 to win 👑</h1>}
+      <Main>
+        <PlayerCard
+          user={1}
+          score={scores0}
+          currentScore={activePlayer === 0 ? currentScore : 0}
+          active={activePlayer === 0 ? true : false}
+          winnerStatus={winner}
+        ></PlayerCard>
+        <Dice playing={playing} diceNumber={diceNumber} />
+        <PlayerCard
+          user={2}
+          score={scores1}
+          currentScore={activePlayer === 1 ? currentScore : 0}
+          active={activePlayer === 1 ? true : false}
+          winnerStatus={winner}
+        ></PlayerCard>
+        <StartNewGameButton
+          onClickHandler={newGameHandler}
+        ></StartNewGameButton>
+        <RollDiceButton onClickHandler={rollDiceHandler}></RollDiceButton>
+        <HoldButton onClickHandler={holdHandler}></HoldButton>
+      </Main>
+    </>
   );
 }
 
